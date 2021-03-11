@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\mdela\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mdela\\.nuget\\packages"
+    ]
+  }
+}
