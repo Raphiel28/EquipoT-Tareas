@@ -13,6 +13,7 @@ namespace Tarea_7.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Telefono { get; set; }
+        public string cedula { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int? VacunaId { get; set; }
         public int? ProvinciaId { get; set; }
