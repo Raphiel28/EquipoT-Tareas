@@ -1,0 +1,32 @@
+@page "/vacunadosPorZodiaco"
+@using Tarea_7.Models;
+
+<h1>Cantidad de pacientes vacunados por su numero del zodiaco</h1>
+
+<table class="table table-container">
+    <thead>
+        <tr>
+            <th>Signo Zodiacal</th>
+            <th>Cantidad de pacientes vacunados</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (KeyValuePair<string, int> Items in GetPacientesZodiaco())
+        {
+            <tr>
+                <td>@Items.Key</td>
+                <td>@Items.Value</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+
+@code {
+    Dictionary<string, int> GetPacientesZodiaco() => new vacunadosrdContext().Signozodiacal.ToList().GroupBy(s => s.Signo)
+        .ToDictionary(s => s.Key, s => s.Count());
+}
