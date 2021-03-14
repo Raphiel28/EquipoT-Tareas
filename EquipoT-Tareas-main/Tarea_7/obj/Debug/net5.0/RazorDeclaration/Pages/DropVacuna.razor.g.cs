@@ -4,12 +4,11 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Tarea_7.Shared
+namespace Tarea_7.Pages
 {
     #line hidden
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -83,13 +82,21 @@ using Tarea_7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\_Imports.razor"
+#line 2 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\Pages\DropVacuna.razor"
 using Tarea_7.Models;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\Pages\DropVacuna.razor"
+using System.Linq;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/DropVacuna")]
+    public partial class DropVacuna : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,16 +104,25 @@ using Tarea_7.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\Shared\NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
+#line 12 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\Pages\DropVacuna.razor"
+      
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    string  Cedula1 = "";
+string mensaje = "";
+   
 
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+
+async Task DropVacunado(){
+ vacunadosrdContext bd = new vacunadosrdContext();
+ var a = Cedula1;
+var drop =  bd.Pacientes.Where(x=> x.cedula == a);
+
+bd.Pacientes.RemoveRange(drop);
+bd.SaveChanges();
+Cedula1 = "";
+mensaje = "se elimino correctamente";
+}
+
 
 #line default
 #line hidden

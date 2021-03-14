@@ -1,0 +1,69 @@
+@page "/Zodiacal"
+
+<h4>Listado de vacunados por signo Zodiacal</h4>
+
+
+@if(signos != null){
+ 
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Signo</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+   <tbody>
+       
+    @foreach (var item in signos)
+    {
+         
+      
+      <tr>
+     
+    
+        @foreach(var item2 in GetSignos(item.Key)){
+            
+            <th scope="row">@item2.Id </th>
+            <td>@item2.Signo</td>
+
+        }
+        <td>>@item.Count()</td>
+        </tr>
+
+        
+    }
+         
+   </tbody>
+    </table>
+
+  
+  
+}
+  
+  
+@code{
+    private List<IGrouping<int?, Pacientes>> signos = null;
+
+    
+    
+      
+
+
+
+        protected override void OnInitialized(){
+            vacunadosrdContext nc = new vacunadosrdContext();
+            signos = nc.Pacientes.AsEnumerable().GroupBy(x => x.SignoId).ToList();
+           
+        }
+
+        List<Signozodiacal> GetSignos(int? id){
+    
+    vacunadosrdContext context = new vacunadosrdContext();
+
+    var signos1 = context.Signozodiacal.Where(x => x.Id == id).ToList();
+
+    return signos1;
+    
+
+}}

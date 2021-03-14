@@ -1,0 +1,30 @@
+@page "/DropVacuna"
+@using Tarea_7.Models;
+@using System.Linq;
+
+<h1>Escriba la cedula de quien desea eliminar</h1>
+<input type = "text" @bind-value = "@Cedula1">
+
+
+          <button class="btn btn-danger"@onclick = "DropVacunado" >Delete</button>
+     
+  <div>@mensaje</div>
+@code{
+
+    string  Cedula1 = "";
+string mensaje = "";
+   
+
+
+async Task DropVacunado(){
+ vacunadosrdContext bd = new vacunadosrdContext();
+ var a = Cedula1;
+var drop =  bd.Pacientes.Where(x=> x.cedula == a);
+
+bd.Pacientes.RemoveRange(drop);
+bd.SaveChanges();
+Cedula1 = "";
+mensaje = "se elimino correctamente";
+}
+
+}

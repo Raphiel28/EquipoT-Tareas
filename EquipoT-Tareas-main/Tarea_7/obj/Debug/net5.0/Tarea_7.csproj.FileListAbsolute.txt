@@ -326,3 +326,7 @@ C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\Ra
 C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\Razor\Pages\VProvincia.razor.g.cs
 C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\RazorDeclaration\Pages\VMarcas.razor.g.cs
 C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\Razor\Pages\VMarcas.razor.g.cs
+C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\RazorDeclaration\Pages\DropVacuna.razor.g.cs
+C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\Razor\Pages\DropVacuna.razor.g.cs
+C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\RazorDeclaration\Pages\Zodiacal.razor.g.cs
+C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\obj\Debug\net5.0\Razor\Pages\Zodiacal.razor.g.cs

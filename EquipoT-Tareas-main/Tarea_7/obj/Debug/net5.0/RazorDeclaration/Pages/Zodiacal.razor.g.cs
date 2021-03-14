@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Tarea_7.Shared
+namespace Tarea_7.Pages
 {
     #line hidden
     using System;
@@ -89,7 +89,8 @@ using Tarea_7.Models;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Zodiacal")]
+    public partial class Zodiacal : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,16 +98,32 @@ using Tarea_7.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\Shared\NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
+#line 45 "C:\Users\raphiel burdier\Desktop\EquipoT-Tareas-main\Tarea_7\Pages\Zodiacal.razor"
+      
+    private List<IGrouping<int?, Pacientes>> signos = null;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    
+    
+      
 
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+
+
+        protected override void OnInitialized(){
+            vacunadosrdContext nc = new vacunadosrdContext();
+            signos = nc.Pacientes.AsEnumerable().GroupBy(x => x.SignoId).ToList();
+           
+        }
+
+        List<Signozodiacal> GetSignos(int? id){
+    
+    vacunadosrdContext context = new vacunadosrdContext();
+
+    var signos1 = context.Signozodiacal.Where(x => x.Id == id).ToList();
+
+    return signos1;
+    
+
+}
 
 #line default
 #line hidden
