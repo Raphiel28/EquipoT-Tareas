@@ -1,0 +1,81 @@
+@page "/VMarcas"
+@inject IJSRuntime js
+
+@if(vacunas != null){
+ 
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vacuna</th>
+      <th scope="col">Cantidad</th>
+    </tr>
+  </thead>
+   <tbody>
+       
+    @foreach (var item in vacunas)
+    {
+         
+      
+      <tr>
+     
+    
+        @foreach(var item2 in GetVacunas(item.Key)){
+            
+            <th scope="row">@item2.Id </th>
+            <td>@item2.Marca</td>
+
+        }
+        <td>>@item.Count()</td>
+        </tr>
+
+        
+    }
+         
+   </tbody>
+    </table>
+
+  
+  
+}
+  
+  <div class = "chart-container">
+    <canvas id = "myChart"></canvas>
+  </div>
+  
+ 
+      <button @onclick = "@(async ()=> await js.InvokeVoidAsync("Getgrafico", vacunas.Count(), new Double [] {1,2,3,4,5}))">Mostrar Grafico</button>
+  
+@code{
+    private List<IGrouping<int?, Pacientes>> vacunas = null;
+
+    Vacunas vacuna1 = new Vacunas();
+    
+      
+
+
+
+        protected override void OnInitialized(){
+            vacunadosrdContext nc = new vacunadosrdContext();
+            vacunas = nc.Pacientes.AsEnumerable().GroupBy(x => x.VacunaId).ToList();
+           
+        }
+
+        List<Vacunas> GetVacunas(int? id){
+    
+    vacunadosrdContext context = new vacunadosrdContext();
+
+    var vacunas = context.Vacunas.Where(x => x.Id == id).ToList();
+
+    return vacunas;
+    }
+    List<Vacunas> GetVacunas2(){
+    
+    vacunadosrdContext context = new vacunadosrdContext();
+
+    var vacunas = context.Vacunas.ToList();
+
+    return vacunas;
+    }
+
+}
